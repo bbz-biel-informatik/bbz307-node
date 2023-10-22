@@ -30,7 +30,7 @@ class Login {
     );
     const users = await this.pool.query(
       `SELECT * FROM ${this.table} WHERE id = $1`,
-      [result.id],
+      [result.rows[0].id],
     );
     return users[0];
   }
