@@ -23,7 +23,7 @@ Der Teil vor dem ersten Komma, `'users'`, sagt dem Server, in welcher Tabelle de
 ihn auf deine Datenbank an.
 
 Der Teil in den eckigen Klammern, `['benutzername', 'passwort', 'profilbild']`, sagt dem Server, wie die Spalten deiner User-Tabelle
-heissen. Passe auch sie an. Wichtig: der Benutzername muss zuerst kommen, dann das Passwort, dann alle weiteren Spalten.
+heissen. Passe auch sie an. **Wichtig: der Benutzername muss zuerst kommen, dann das Passwort, dann alle weiteren Spalten.**
 
 Den letzten Teil, `pool`, kannst du so stehen lassen.
 
