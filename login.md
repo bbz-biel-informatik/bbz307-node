@@ -50,19 +50,19 @@ wenn das Login erfolgreich oder nicht erfolgreich war.
 
 Du kannst auf deinen internen Seiten nun überprüfen, ob die Besucher eingeloggt sind.
 
-Wenn du beispielsweise eine interne Seite namens `intern.mustache` hast, kannst du in der Datei `index.js` die grün markierten
-Zeilen einfügen, um zu überprüfen, ob die Besucher eingeloggt sind:
+Wenn du beispielsweise eine interne Seite namens `intern.mustache` hast, kannst du in der Datei `index.js` die mit einem Pfeil markierten
+Zeilen einfügen, um zu überprüfen, ob die Besucher eingeloggt sind. Beachte, dass du unter Umständen auch in der obersten Zeile noch `async` einfügen musst.
 
-<pre><code>
+```js
 app.get("/intern", async (req, res) => {
-  <span style="color: green">const user = await login.loggedInUser(req);
-  if (!user) {
-    res.redirect("/login");
-    return;
-  }</span>
+  const user = await login.loggedInUser(req);       // <--
+  if (!user) {                                      // <--
+    res.redirect("/login");                         // <--
+    return;                                         // <--
+  }                                                 // <--
   res.render("intern", { user: user });
 });
-</code></pre>
+```
 
 So werden die User, die nicht angemeldet sind, automatisch auf das Login weitergeleitet.
 
