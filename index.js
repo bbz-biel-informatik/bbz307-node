@@ -66,3 +66,7 @@ class Login {
     return false;
   }
 }
+
+module.exports = {
+  Login: Login
+}
