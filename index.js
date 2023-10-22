@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 class Login {
   constructor(table, columns, pool) {
     this.table = table;
