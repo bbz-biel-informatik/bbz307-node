@@ -4,6 +4,14 @@
 
 Füge zuerst in der Codesandbox im Menu links unter "Dependencies" die Bibliothek `bbz307` hinzu.
 
+Falls die Codesandbox die Bibliothek nicht findet, kannst du auch am unteren Fensterrand das Panel `Terminal` öffnen, und dort den Text
+
+```bash
+npm install bbz307
+```
+
+eingeben. Damit wird die Bibliothek auch installiert und sollte unter "Dependencies" erscheinen.
+
 Füge dann in deiner `index.js`-Datei, direkt unter dem Teil mit `const pool = new Pool(...)` die folgende Zeile ein:
 
 ```js
