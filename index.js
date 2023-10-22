@@ -50,7 +50,7 @@ class Login {
   async loginUser(req) {
     const username = req.body[this.usernameColumn];
     const password = req.body[this.passwordColumn];
-    const users = await pool.query(
+    const users = await this.pool.query(
       `SELECT * FROM ${this.table} WHERE ${this.usernameColumn} = $1`,
       [username],
     );
