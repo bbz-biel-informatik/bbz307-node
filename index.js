@@ -32,7 +32,7 @@ class Login {
       `SELECT * FROM ${this.table} WHERE id = $1`,
       [result.rows[0].id],
     );
-    return users[0];
+    return users.rows[0];
   }
 
   async loggedInUser(req) {
