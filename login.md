@@ -10,7 +10,7 @@ app.get("/login", (req, res) => {
 });
 ```
 
-Erstelle dann das Formular:
+Erstelle dann die Datei "login.mustache" und füge dort das Formular ein:
 
 ```html
 Login
