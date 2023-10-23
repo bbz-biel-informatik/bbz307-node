@@ -15,7 +15,7 @@ Erstelle dann das Formular:
 ```html
 Registrierung
 <form action="/register" enctype="multipart/form-data" method="post">
-  Benutzername: <input type="text" name="name"><br>
+  Benutzername: <input type="text" name="benutzername"><br>
   Passwort: <input type="password" name="password"><br>
   Avatar: <input type="text" name="avatar"><br>
   <input type="submit">
