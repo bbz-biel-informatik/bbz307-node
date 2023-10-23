@@ -10,7 +10,7 @@ app.get("/register", (req, res) => {
 });
 ```
 
-Erstelle dann das Formular:
+Erstelle dann die Datei "register.mustache" und füge dort das Formular ein:
 
 ```html
 Registrierung
