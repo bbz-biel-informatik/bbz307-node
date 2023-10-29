@@ -28,7 +28,7 @@ Wenn das Formular abgesendet wird, wird es an die Adresse `/rezept` gesendet. Di
 Füge in der Datei `index.js` den folgenden Code ein:
 
 ```js
-app.post('/upload', upload.none(), async function (req, res) {
+app.post('/rezept', upload.none(), async function (req, res) {
   await pool.query('INSERT INTO rezepte (titel, anleitung) VALUES ($1, $2)', [req.body.titel, req.body.anleitung]);
   res.redirect('/');
 });
