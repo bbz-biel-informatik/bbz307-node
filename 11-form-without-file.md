@@ -39,3 +39,19 @@ Damit werden die Formularfelder `titel` und `anleitung` in die Datenbank gespeic
 * Den Tabellennamen im SQL-Befehl (hier: `rezepte`)
 * Die Spalten, die gefüllt werden sollen (hier: `titel, anleitung`)
 * Die Formularfelder, die gespeichert werden sollen (hier: `req.body.titel, req.body.anleitung`)
+
+**Hinweis:** Wenn ebenfalls erfasst werden soll, welcher User das neue Rezept erfasst hat müsst ihr die `user_id`ebenfalls in die Datenbank schreiben. Füge zu diesem Zweck stattdessen den folgenden Code in der Datei `index.js` ein: 
+
+```js
+app.post('/rezept', upload.none(), async function (req, res) {
+  const user = await login.loggedInUser(req);
+  await pool.query('INSERT INTO rezepte (titel, anleitung) VALUES ($1, $2, $3)', [req.body.titel, req.body.anleitung, user.id]);
+  res.redirect('/');
+});
+```
+Passe auch hier die folgenden Angaben an, damit sie deiner Applikation entsprechen:
+
+* Den Tabellennamen im SQL-Befehl (hier: `rezepte`)
+* Die Spalten, die gefüllt werden sollen (hier: `titel, anleitung`)
+* Die Formularfelder, die gespeichert werden sollen (hier: `req.body.titel, req.body.anleitung`)
+
