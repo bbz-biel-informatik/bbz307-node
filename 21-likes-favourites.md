@@ -21,6 +21,13 @@ Datei einbauen, in der der Like-Button angezeigt werden soll:
 Wichtig: Der Platzhalter `{{post.id}}` muss angepasst werden, je nachdem, welche Entität auf
 der Seite angezeigt wird!
 
+Um anstelle des Knopfs ein Bild anzuzeigen, kannst du den Submit-Knopf mit der folgenden Zeile
+ersetzen:
+
+```html
+<input type="image" src="/like.png">
+```
+
 Nun müssen wir noch den Code schreiben, der das Like in der Datenbank speichert. Dafür
 ergänzen wir die Datei `app.js` mit den folgenden Zeilen Code:
 
