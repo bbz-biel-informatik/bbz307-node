@@ -13,7 +13,7 @@ unser Blogpost, Rezept usw. angezeit wird. Dafür können wir folgenden Code in 
 Datei einbauen, in der der Like-Button angezeigt werden soll:
 
 ```html
-<form action="/like/{{post.id}}" method="POST">
+<form action="/like/{{post.id}}" enctype="multipart/form-data" method="POST">
   <input type="submit" value="liken">
 </form>
 ```
@@ -25,7 +25,7 @@ Nun müssen wir noch den Code schreiben, der das Like in der Datenbank speichert
 ergänzen wir die Datei `app.js` mit den folgenden Zeilen Code:
 
 ```js
-app.post('/like/:id', async function(req, res) {
+app.post('/like/:id', upload.none(), async function(req, res) {
   const user = await login.loggedInUser(req);
   if(!user) {
     res.redirect('/login');
