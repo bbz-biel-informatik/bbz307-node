@@ -25,7 +25,7 @@ Nun müssen wir noch den Code schreiben, der das Like in der Datenbank speichert
 ergänzen wir die Datei `app.js` mit den folgenden Zeilen Code:
 
 ```js
-app.post('/likes/:id', async function(req, res) {
+app.post('/like/:id', async function(req, res) {
   const user = await login.loggedInUser(req);
   if(!user) {
     res.redirect('/login');
