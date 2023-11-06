@@ -29,7 +29,7 @@ ersetzen:
 ```
 
 Nun müssen wir noch den Code schreiben, der das Like in der Datenbank speichert. Dafür
-ergänzen wir die Datei `app.js` mit den folgenden Zeilen Code:
+ergänzen wir die Datei `index.js` mit den folgenden Zeilen Code:
 
 ```js
 app.post('/like/:id', upload.none(), async function(req, res) {
