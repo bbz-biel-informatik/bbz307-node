@@ -13,13 +13,10 @@ unser Blogpost, Rezept usw. angezeit wird. Dafür können wir folgenden Code in 
 Datei einbauen, in der der Like-Button angezeigt werden soll:
 
 ```html
-<form action="/like/{{post.id}}" enctype="multipart/form-data" method="POST">
+<form action="/like/{{id}}" enctype="multipart/form-data" method="POST">
   <input type="submit" value="liken">
 </form>
 ```
-
-Wichtig: Der Platzhalter `{{post.id}}` muss angepasst werden, je nachdem, welche Entität auf
-der Seite angezeigt wird!
 
 Um anstelle des Knopfs ein Bild anzuzeigen, kannst du den Submit-Knopf mit der folgenden Zeile
 ersetzen:
