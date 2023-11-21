@@ -68,4 +68,15 @@ So werden die User, die nicht angemeldet sind, automatisch auf das Login weiterg
 
 Damit ist das Login abgeschlossen.
 
+## Einträge des eingeloggten Users laden
+
+```js
+const user = await login.loggedInUser(req);
+if (!user) {
+  res.redirect("/login");
+  return;
+}
+const posts = await pool.query("SELECT * FROM posts WHERE user_id = $1", [user.id]);
+```
+
 &rarr; [Zurück zur Startseite](README.md)
