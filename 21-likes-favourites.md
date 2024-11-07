@@ -56,7 +56,7 @@ res.redirect(`/posts/${req.params.id}`);
 ```
 
 Wenn du möchtest, dass die Anzahl Likes auf der Detailseite des Posts angezeigt wird, benötigt es im `index.js` eine weitere SQL-Abfrage
-in der bestehenden Route für die Detailseite. Ein Beispiel davon könnte folgendermassen aussehen:
+in der bestehenden Route für die Detailseite. Dafür definieren wir die Variable `likes`. Ein Beispiel davon könnte folgendermassen aussehen:
 
 ```js
   app.get("/events/:id", async function (req, res) {
