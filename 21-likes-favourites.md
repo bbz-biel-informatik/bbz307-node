@@ -26,7 +26,7 @@ ersetzen:
 ```
 
 Nun müssen wir noch den Code schreiben, der das Like in der Datenbank speichert. Dafür
-ergänzen wir die Datei `index.js` mit den folgenden Zeilen Code:
+ergänzen wir die Datei `config.js` mit den folgenden Zeilen Code:
 
 ```js
 app.post('/like/:id', upload.none(), async function(req, res) {
@@ -53,4 +53,25 @@ Danach wird die Person auf die Startseite zurückgeleitet. Diese Adresse kannst 
 
 ```js
 res.redirect(`/posts/${req.params.id}`);
+```
+
+Wenn du möchtest, dass die Anzahl Likes auf der Detailseite des Posts angezeigt wird, benötigt es im `index.js` eine weitere SQL-Abfrage
+in der bestehenden Route für die Detailseite. Ein Beispiel davon könnte folgendermassen aussehen:
+
+```js
+  app.get("/events/:id", async function (req, res) {
+    const event = await app.locals.pool.query("SELECT * FROM events WHERE id = $1", [
+      req.params.id,
+    ]);
+    const likes = await app.locals.pool.query("SELECT COUNT(user_id) FROM likes WHERE post_id = $1", [
+      req.params.id
+    ]);
+    res.render("details", { event: event.rows[0], likes: likes.rows[0] });
+  });
+```
+
+Im HTML-Code kannst du dann die neue likes Variable verwenden, um die gezählten Likes anzuzeigen:
+
+```html
+<p>{{likes.count}} Likes</p>
 ```
