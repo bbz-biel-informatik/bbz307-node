@@ -9,7 +9,7 @@ Als Person können wir jeweils den User verwenden, der eingeloggt ist. Wir müss
 nur noch die zu likende Entität finden.
 
 Am einfachsten geht das, indem wir den Like-Button auf der Seite einbauen, auf der
-unser Blogpost, Rezept usw. angezeit wird. Dafür können wir folgenden Code in die Mustache-
+unser Blogpost, Rezept usw. angezeit wird. Dafür können wir folgenden Code in die Handlebars-
 Datei einbauen, in der der Like-Button angezeigt werden soll:
 
 ```html
