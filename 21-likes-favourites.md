@@ -69,6 +69,7 @@ in der bestehenden Route für die Detailseite. Dafür definieren wir die Variabl
     res.render("details", { event: event.rows[0], likes: likes.rows[0] });
   });
 ```
+Solltest du schon den Code für die Detailseite haben, ergänze deinen Code nur mit den Zeilen für die likes Variable und mit dem Codeteil in der letzten Zeile `, likes: likes.rows[0]`. Ansonsten ändere je nach Bedarf den Tabellennamen und die Spaltennamen ab.
 
 Im HTML-Code kannst du dann die neue likes Variable verwenden, um die gezählten Likes anzuzeigen:
 
