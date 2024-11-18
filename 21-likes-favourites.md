@@ -26,16 +26,33 @@ ersetzen:
 ```
 
 Nun müssen wir noch den Code schreiben, der das Like in der Datenbank speichert. Dafür
-ergänzen wir die Datei `config.js` mit den folgenden Zeilen Code:
+ergänzen wir die Datei `index.js` mit den folgenden Zeilen Code. Damit wird ein neuer Eintrag
+in die Likes-Tabelle geschrieben, die die ID des Posts und die ID der angemeldeten Person
+enthält:
+
+## Falls du den Login-Code mit `login.loggedInUser` programmiert hast (MDM2022e, MDM2022h)
 
 ```js
-app.post('/like/:id', upload.none(), async function(req, res) {
+app.post('/like/:id', async function(req, res) {
   const user = await login.loggedInUser(req);
   if(!user) {
     res.redirect('/login');
     return;
   }
   await pool.query('INSERT INTO likes (post_id, user_id) VALUES ($1, $2)', [req.params.id, user.id]);
+  res.redirect('/');
+});
+``` |
+
+## Falls du den Login-Code mit `req.session.userid` programmiert hast (MDMW2023a, MDM2022a, MDM2022b, MDM2022c)
+
+```js
+app.post('/like/:id', async function(req, res) {
+  if(!req.session.userid) {
+    res.redirect('/login');
+    return;
+  }
+  await app.locals.pool.query('INSERT INTO likes (post_id, user_id) VALUES ($1, $2)', [req.params.id, req.session.userid]);
   res.redirect('/');
 });
 ```
