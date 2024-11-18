@@ -39,10 +39,10 @@ app.post('/like/:id', async function(req, res) {
     res.redirect('/login');
     return;
   }
-  await pool.query('INSERT INTO likes (post_id, user_id) VALUES ($1, $2)', [req.params.id, user.id]);
+  await app.locals.pool.query('INSERT INTO likes (post_id, user_id) VALUES ($1, $2)', [req.params.id, user.id]);
   res.redirect('/');
 });
-``` |
+```
 
 ## Falls du den Login-Code mit `req.session.userid` programmiert hast (MDMW2023a, MDM2022a, MDM2022b, MDM2022c)
 
